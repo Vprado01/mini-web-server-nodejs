@@ -1,7 +1,7 @@
-const express = require('express')
-const path = require('path')
+import express from 'express'
+import path from 'path'
 
-const startServer = (options) => {
+export const startServer = (options) => {
     const { port, public_path = 'public'} = options
 
     //Middleware
@@ -12,12 +12,9 @@ const startServer = (options) => {
         const indexPath = path.join(__dirname+`../../../${public_path}/index.html`)
         res.sendFile(indexPath)
     })
-    app.listen(port, () => {
-        console.log(`Escuchando en el puerto ${port}`)
-    })
-    
+app.listen(port, () => {
+    console.log(`Escuchando en el puerto ${port}`)
+})
+
 }
 
-module.exports = {
-    startServer
-}
